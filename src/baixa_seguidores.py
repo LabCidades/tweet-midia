@@ -3,10 +3,14 @@ import json
 import tweepy as tw
 import pandas as pd
 import time
+from decouple import config
+
+API_KEY = config('twitter_apikey')
+API_SECRET = config('twitter_apisecret')
 
 # dados de autenticacao
-my_api_key = "RKOGzIv2WtGF5DqI1ij4y1xJ8"
-my_api_secret = "mzXrng0SK6mGaIiHQsfTv6nMS9LOICn11Rkjx6VNlw4dauyLUP"
+my_api_key = API_KEY
+my_api_secret = API_SECRET
 
 # autenticacao
 auth = tw.OAuthHandler(my_api_key, my_api_secret)
