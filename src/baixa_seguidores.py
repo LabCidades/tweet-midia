@@ -22,12 +22,10 @@ lista_perfis = ['@agmural','@perifasemove','@chavosodausp','@favelaempauta','@cc
 followers = []
 
 for perfil in lista_perfis:
-    for follower in tw.Cursor(api.followers, screen_name=perfil, tweet_mode="extended").items():
+    for follower in tw.Cursor(api.get_followers, screen_name=perfil, tweet_mode="extended").items():
       followers.append([perfil,follower])
     time.sleep(60)
     print('=== extraindo tweets do :',perfil)
-df = pd.json_normalize(followers)
-
-#salva csv
-compression_opts = dict(method='zip',archive_name='dataset_seguidores.csv')
-df.to_csv('dataset_seguidores.zip', index=False, compression=compression_opts)
+    df = pd.json_normalize(followers)
+    compression_opts = dict(method='zip',archive_name='dataset_seguidores_'+perfil+'.csv')
+    df.to_csv('dataset_tweets'+perfil+'.zip', index=False, compression=compression_opts)

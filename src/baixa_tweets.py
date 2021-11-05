@@ -17,18 +17,33 @@ my_api_secret = API_SECRET
 auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
+#parametros de busca
 lista_perfis = ['@agmural','@perifasemove','@chavosodausp','@favelaempauta','@ccsp_oficial','@PRODUTORAABANCA','@luanapsol','@RACIONAISCN','@criolomc','@CulturaSP','@ducavendish','@MajiwkiJacques','@arthurmoledoval','@LuisAdorno','@augustosnunes','@jnascim','@J_LIVRES','@GuilhermeBoulos','@MidiaNINJA']
+lista_perfis_2 = ['@GuilhermeBoulos','@MidiaNINJA']
+data_desde = "2020-02-26"
     
 # extração dos tweets e criação do dataframe
-tweets = []
 
-for perfil in lista_perfis:
-  for status in tw.Cursor(api.user_timeline, screen_name=perfil, tweet_mode="extended").items(10):
+for perfil in lista_perfis_2:
+  tweets = []
+  for status in tw.Cursor(api.user_timeline, screen_name=perfil, tweet_mode="extended").items(1000):
       tweets.append(status._json)
-  time.sleep(60)
   print('=== extraindo tweets do :',perfil)
+  df = pd.json_normalize(tweets)
+  compression_opts = dict(method='zip',archive_name='dataset_tweets_'+perfil+'.csv')
+  df.to_csv('dataset_tweets'+perfil+'.zip', index=False, compression=compression_opts)
+  time.sleep(900)
+
+""" perfil = '@favelaempauta'
+tweets = []
+for status in tw.Cursor(api.user_timeline, screen_name=perfil, tweet_mode="extended").items():
+    tweets.append(status._json)
+print('=== extraindo tweets do :',perfil)
 df = pd.json_normalize(tweets)
+compression_opts = dict(method='zip',archive_name='dataset_tweets_'+perfil+'.csv')
+df.to_csv('dataset_tweets'+perfil+'.zip', index=False, compression=compression_opts) """
+
 
 #salva csv
-compression_opts = dict(method='zip',archive_name='dataset_tweets.csv')
-df.to_csv('dataset_tweets.zip', index=False, compression=compression_opts)
+""" compression_opts = dict(method='zip',archive_name='dataset_tweets.csv')
+df.to_csv('dataset_tweets.zip', index=False, compression=compression_opts) """
