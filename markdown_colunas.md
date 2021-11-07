@@ -1,28 +1,3 @@
-# Criador de dataset Twitter - Lab. Midia
-
-Dataset de tweets e seguidores:
-+ @agmural,
-+ @perifasemove
-+ @chavosodausp
-+ @favelaempauta
-+ @ccsp_oficial
-+ @PRODUTORAABANCA
-+ @luanapsol
-+ @RACIONAISCN
-+ @criolomc
-+ @CulturaSP
-+ @ducavendish
-+ @MajiwkiJacques
-+ @arthurmoledoval
-+ @LuisAdorno
-+ @augustosnunes
-+ @jnascim
-+ @J_LIVRES
-+ @GuilhermeBoulos
-+ @MidiaNINJA
-
-> colunas no dataset de tweets
-
 |    |   indice     | Nome da coluna ds_tweets                |
 |---:|-------------:|:----------------------------------------|
 |  0 |            0 | created_at                              |
@@ -93,4 +68,3 @@ Dataset de tweets e seguidores:
 | 65 |           65 | user.notifications                      |
 | 66 |           66 | user.translator_type                    |
 | 67 |           67 | user.withheld_in_countries              |
-
