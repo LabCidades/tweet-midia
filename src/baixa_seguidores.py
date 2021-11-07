@@ -24,10 +24,10 @@ lista_perfis2 = ['@agmural']
 followers = []
 
 for perfil in lista_perfis:
-    for follower in tw.Cursor(api.get_followers, screen_name=perfil, tweet_mode="extended").items():
+    for follower in tw.Cursor(api.get_followers, screen_name=perfil, tweet_mode="extended").items(1000):
       followers.append([perfil,follower])
       #time.sleep(20)
     print('=== extraindo tweets do :',perfil)
     df = pd.json_normalize(followers)
     compression_opts = dict(method='zip',archive_name='dataset_seguidores_'+perfil+'.csv')
-    df.to_csv('dataset_tweets'+perfil+'.zip', index=False, compression=compression_opts)
+    df.to_csv('dataset_seguidores_'+perfil+'.zip', index=False, compression=compression_opts)
