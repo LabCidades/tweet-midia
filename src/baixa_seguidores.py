@@ -18,12 +18,12 @@ api = tw.API(auth, wait_on_rate_limit=True)
 
 lista_perfis = ['@agmural','@perifasemove','@chavosodausp','@favelaempauta','@ccsp_oficial','@PRODUTORAABANCA','@luanapsol','@RACIONAISCN','@criolomc','@CulturaSP','@ducavendish','@MajiwkiJacques','@arthurmoledoval','@LuisAdorno','@augustosnunes','@jnascim','@J_LIVRES','@GuilhermeBoulos','@MidiaNINJA']
 
-lista_perfis2 = ['@agmural']
+lista_perfis2 = ['@luanapsol','@RACIONAISCN','@criolomc','@CulturaSP','@ducavendish','@MajiwkiJacques','@arthurmoledoval','@LuisAdorno','@augustosnunes','@jnascim','@J_LIVRES','@GuilhermeBoulos','@MidiaNINJA']
 
 # extração dos tweets e criação do dataframe
 followers = []
 
-for perfil in lista_perfis:
+for perfil in lista_perfis2:
     for follower in tw.Cursor(api.get_followers, screen_name=perfil, tweet_mode="extended").items(1000):
       followers.append([perfil,follower])
       #time.sleep(20)
