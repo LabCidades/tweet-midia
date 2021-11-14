@@ -7,7 +7,7 @@ fileDir = os.path.dirname(os.path.abspath(__file__))
 print(fileDir)
 parentDir = os.path.dirname(fileDir)
 print(parentDir)
-pasta_dados = os.path.join(parentDir,'data/data tweets 55')
+pasta_dados = os.path.join(parentDir,'data\\data tweets 5k')
 
 #importar as colunas
 df_colunas = pd.read_csv('colunas_dataset_tweets.csv')
@@ -23,5 +23,5 @@ for perfil in lista_perfis:
     print("concatenando dataset do usuario " + perfil + "..." )
 
 df = pd.DataFrame(dataset_tweets, columns=lista_colunas)
-df.to_csv('dataset_tweets_midia_5k.csv',encoding="utf_8")
+df.to_csv('dataset_tweets_midia_100k.csv',encoding="utf_8")
 
