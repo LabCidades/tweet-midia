@@ -7,7 +7,7 @@ fileDir = os.path.dirname(os.path.abspath(__file__))
 print(fileDir)
 parentDir = os.path.dirname(fileDir)
 print(parentDir)
-pasta_dados = os.path.join(parentDir,'data')
+pasta_dados = os.path.join(parentDir,'data\\data tweets 5k')
 
 #importar as colunas
 df_colunas = pd.read_csv('colunas_dataset_tweets.csv')
