@@ -17,13 +17,12 @@ lista_perfis = ['@agmural','@perifasemove','@favelaempauta','@ccsp_oficial','@PR
 
 for perfil in lista_perfis:
     df= pd.read_csv(pasta_dados + '\\' + perfil + '_followers.csv', dtype='unicode')
+    df['ref'] = perfil
     if perfil == '@agmural':
         dataset_tweets = df
-        dataset_tweets['ref'] = perfil
     else:
         dataset_tweets = pd.concat([dataset_tweets,df])
-        dataset_tweets['ref'] = perfil
     print("concatenando dataset de seguidores do usuario " + perfil + "..." )
 
 #df = pd.DataFrame(dataset_tweets, columns=lista_colunas)
-dataset_tweets.to_csv('dataset_followers_midia.csv',encoding="utf_8")
+dataset_tweets.to_csv('dataset_followers_midia_2.csv',encoding="utf_8")
