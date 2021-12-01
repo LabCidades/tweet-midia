@@ -10,8 +10,8 @@ print(parentDir)
 pasta_dados = os.path.join(parentDir,'data')
 
 #importar as colunas
-""" df_colunas = pd.read_csv('colunas_dataset_tweets.csv')
-lista_colunas = df_colunas.to_numpy()[:,-1] """
+df_colunas = pd.read_csv('colunas_dataset_tweets.csv')
+lista_colunas = df_colunas.to_numpy()[:,-1]
 
 lista_perfis = ['@agmural','@perifasemove','@favelaempauta','@ccsp_oficial','@PRODUTORAABANCA','@luanapsol','@RACIONAISCN','@criolomc','@CulturaSP','@ducavendish','@MajiwkiJacques','@arthurmoledoval','@LuisAdorno','@augustosnunes','@jnascim','@J_LIVRES','@GuilhermeBoulos','@MidiaNINJA']
 
